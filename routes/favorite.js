@@ -1,8 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const Favorite = require('../model/Favorite');
+
+var favorite_Control = require("../controllers/favorite_Control")
 
 
+router.get('/',favorite_Control.getFavorite)
+
+router.post('/add',favorite_Control.addFavorite)
+
+router.patch('/edit',favorite_Control.editFavorite)
+
+router.delete('/delete',favorite_Control.deleteFavorite)
 
 
 module.exports = router; 

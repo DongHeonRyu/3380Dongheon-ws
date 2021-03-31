@@ -1,0 +1,31 @@
+get http://localhost:8000/favorite/
+
+
+###
+
+post http://localhost:8000/favorite/add/
+Content-Type: application/json
+
+{
+    "movieId":"asd",
+    "movieTitle":"Lord Of the Ring",
+    "movieRunTime":"128",
+    "movieRate":"4"
+}
+
+###
+delete http://localhost:8000/favorite/delete/
+Content-Type: application/json
+
+{
+     "movieId":"asd"
+}
+
+###
+PATCH  http://localhost:8000/favorite/edit
+Content-Type: application/json
+
+{
+     "movieId":"asd",
+     "movieRate":"1"
+}

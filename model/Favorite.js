@@ -2,22 +2,19 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const favoriteSchema = mongoose.Schema(
   {
-    userFrom: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-    },
     movieId: {
       type: String,
+      required:true
     },
     movieTitle: {
-      type: String,
-    },
-    moviePost: {
-      type: String,
+      type: String
     },
     movieRunTime: {
-      type: String,
+      type: String
     },
+    movieRate:{
+      type: Number
+    }
   },
   { timestamps: true }
 );

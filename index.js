@@ -32,7 +32,7 @@ mongoose.connect(process.env.MONGO_URL,
 
 
 //Connet route
-app.use("/api/favorite", cors(corsOptions), require("./routes/favorite"));
+app.use("/favorite", cors(corsOptions), require("./routes/favorite"));
 
 app.listen(port, () => {
   console.log(`Web Service Listening on port ${port}`);
