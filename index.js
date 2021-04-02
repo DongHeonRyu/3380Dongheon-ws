@@ -4,7 +4,7 @@ const cors = require("cors");
 require('dotenv').config({path:'variable.env'})
 
 const app = express();
-const port = 8000;
+const port = 9000;
 const corsOptions = {
   origin: "*",
 };
@@ -12,13 +12,6 @@ const corsOptions = {
 app.use(cors());
 app.use(bodyParser.json());
 
-//Connect Mongoose
-// const mongoose = require('mongoose')
-// mongoose.connect(process.env.MONGO_URL,{ useUnifiedTopology: true,useNewUrlParser: true})
-// const db = mongoose.connection
-
-// db.on('error',(error) => console.error(error))
-// db.once('open', () => console.log('Connected to Database'))
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.MONGO_URL,
@@ -32,7 +25,7 @@ mongoose.connect(process.env.MONGO_URL,
 
 
 //Connet route
-app.use("/favorite", cors(corsOptions), require("./routes/favorite"));
+app.use("/ratemovie", cors(corsOptions), require("./routes/favorite"));
 
 app.listen(port, () => {
   console.log(`Web Service Listening on port ${port}`);

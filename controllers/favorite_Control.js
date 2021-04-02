@@ -9,6 +9,16 @@ exports.getFavorite = async (req, res) => {
   }
 };
 
+exports.getSpecFavorite = async(req,res)=>{
+  try{
+    const list = await Favorite.findOne({movieId:req.body.movieId});
+    res.json(list);
+  }catch{
+    res.json({ message: err.message });
+  }
+}
+
+
 exports.addFavorite = (req, res) => {
   const favorite = new Favorite(req.body);
 
@@ -27,10 +37,31 @@ exports.deleteFavorite = (req,res)=>{
 exports.editFavorite = async (req,res)=>{
 
   try{
+
+
     const id = {movieId: req.body.movieId};
     const updates = {movieRate: req.body.movieRate};
 
+
     const result = await Favorite.findOneAndUpdate(id,updates);
+
+    res.send(result);
+  }catch(err){
+    res.json({ message: err.message });
+  }
+}
+
+exports.editComment= async (req,res)=>{
+
+  try{
+
+
+    const id = {movieId: req.body.movieId};
+    const updates = {movieComment: req.body.movieComment};
+
+
+    const result = await Favorite.findOneAndUpdate(id,updates);
+
     res.send(result);
   }catch(err){
     res.json({ message: err.message });

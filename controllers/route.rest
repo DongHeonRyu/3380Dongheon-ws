@@ -1,31 +1,52 @@
-get http://localhost:8000/favorite/
+get http://localhost:9000/ratemovie/
 
 
 ###
 
-post http://localhost:8000/favorite/add/
+post http://localhost:9000/ratemovie/find
 Content-Type: application/json
 
 {
-    "movieId":"asd",
+     "movieId": "581389"
+}
+
+
+###
+
+post http://localhost:9000/ratemovie/add/
+Content-Type: application/json
+
+{
+    "movieId":"1111",
     "movieTitle":"Lord Of the Ring",
     "movieRunTime":"128",
-    "movieRate":"4"
+    "movieRate":"4",
+    "movieComment":"movie sucks"
 }
 
 ###
-delete http://localhost:8000/favorite/delete/
+delete http://localhost:9000/ratemovie/delete/
 Content-Type: application/json
 
 {
-     "movieId":"asd"
+     "movieId":"399566"
 }
 
 ###
-PATCH  http://localhost:8000/favorite/edit
+PATCH  http://localhost:9000/ratemovie/edit
 Content-Type: application/json
 
 {
      "movieId":"asd",
-     "movieRate":"1"
+     "movieRate":"3"
+}
+
+###
+
+PATCH  http://localhost:9000/ratemovie/editcomment
+Content-Type: application/json
+
+{
+     "movieId":"399566",
+     "movieComment":"movie sucksdddddddddddddddddddddddddddddddddd"
 }

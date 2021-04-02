@@ -14,6 +14,9 @@ const favoriteSchema = mongoose.Schema(
     },
     movieRate:{
       type: Number
+    },
+    movieComment:{
+      type: String
     }
   },
   { timestamps: true }
