@@ -21,8 +21,13 @@ exports.getSpecFavorite = async(req,res)=>{
 
 exports.addFavorite = (req, res) => {
   const favorite = new Favorite(req.body);
-
-  favorite.save();
+  // create if not exist, update if exist
+  // upsert is update/insert
+  Favorite.findOneAndUpdate({movieId: req.body.moveId}, req.body, {upsert: true}, function (err,doc) {
+    if (err) return res.status(400).send(err);
+    res.status(200).json({success: true, doc});
+  })
+  //favorite.save();
 };
 
 exports.deleteFavorite = (req,res)=>{

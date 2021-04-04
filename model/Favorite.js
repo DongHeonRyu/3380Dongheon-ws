@@ -4,7 +4,8 @@ const favoriteSchema = mongoose.Schema(
   {
     movieId: {
       type: String,
-      required:true
+      required:true,
+      unique: true
     },
     movieTitle: {
       type: String
